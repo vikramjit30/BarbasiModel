@@ -1,0 +1,84 @@
+library("igraph")
+
+# Read the configuration file
+eachValue <- array()
+
+fileName="config.param.txt";
+conn=file(fileName,open="r")
+line=readLines(conn)
+for (i in 1:length(line))
+  {
+    eachValue <- c(eachValue, unlist(strsplit(line[i], "=")))
+  
+  }
+
+close(conn)
+
+numberOfNodes = eachValue[3]
+minPower = eachValue[5]
+maxPower = eachValue[7]
+numberOfGraphs = eachValue[9]
+couplingStrength = eachValue[11]
+
+# Change the type from string to integer
+minPower = as.numeric(minPower)
+maxPower = as.numeric(maxPower)
+
+power = seq(minPower,maxPower, by=.1)
+numberofPowers = (maxPower - minPower)*10 + 1
+
+for (i in 1:numberOfGraphs)
+{
+  
+  { for (j in 1:numberofPowers)
+    
+     {
+    
+      powerLaw = power[j]
+    
+      ## Create a Barbasi Model
+      BarbasiGraph <- barabasi.game(numberOfNodes, power = powerLaw, directed = FALSE)
+      
+      # Get the edgelists
+      edgeLists <- get.edgelist(BarbasiGraph)
+      
+      # nodeLength = length(edgeLists)/2    -- To find out total number of edges
+       
+      # Sorted EdgeList
+      sortedEdgeList <- edgeLists[order(edgeLists[,1], edgeLists[,2]),]
+      
+      ### fastgreedy.community to detect the communities (Louvain Method)
+      fc <- fastgreedy.community(BarbasiGraph)
+      allCommunities = membership(fc)
+      
+      
+      # clusters = max(membership(fc))   -- To identify total number of clusters
+      
+      
+      # Creating File name 
+      N_file_name = paste("output/",i,"_BarbasiNetwork_N",numberOfNodes,"_powerLaw",powerLaw,"_K",couplingStrength,".edges",sep="")
+      M_file_name = paste("output/",i,"_mem_N",numberOfNodes,"_powerLaw",powerLaw,"_K",couplingStrength,".dat",sep="")
+      
+      # Writing the data to the file
+      for (m in 1:(length(sortedEdgeList)/2))
+        {
+          data = sortedEdgeList[m,]
+          write(data, file = N_file_name,append = TRUE)  
+        }
+      
+      
+      for(k in 1: length(allCommunities))
+        {
+          write(allCommunities[k],file=M_file_name,append=TRUE)
+        }
+      }
+   }
+}
+
+################################## TO plot with Color #########################
+#com<-community.to.membership(BarbasiGraph, fc$merges, steps= which.max(fc$modularity)-1)
+
+#V(BarbasiGraph)$color <- com$membership+1
+#BarbasiGraph$layout <- layout.fruchterman.reingold
+#plot(BarbasiGraph, vertex.label=NA)
+

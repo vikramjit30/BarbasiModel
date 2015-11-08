@@ -1,0 +1,7 @@
+nodes=100
+minPower=2.0
+maxPower=2.4
+number_of_graphs=2
+coupling_Strength=10
+coupling_probability=0.99
+running_time=30

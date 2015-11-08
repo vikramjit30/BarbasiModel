@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{27714C6E-E7B2-4EC0-83F6-44D1B4A2B406}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Launch</RootNamespace>
+    <AssemblyName>Launch</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Launch.LaunchBarbasiModel</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CUDA.NET">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\CUDA.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Demo">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\Demo.exe</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.Core">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.Layout.FruchtermanReingold">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.Layout.FruchtermanReingold.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.Layout.Positioned">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.Layout.Positioned.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.Layout.Radial">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.Layout.Radial.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.Layout.Random">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.Layout.Random.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.Layouts.HuForceDirected">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.Layouts.HuForceDirected.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.MongoDB">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.MongoDB.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.NetworkModels.Cluster">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.NetworkModels.Cluster.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.NetworkModels.ErdoesRenyi">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.NetworkModels.ErdoesRenyi.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.NetworkModels.Tree">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.NetworkModels.Tree.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.NetworkModels.WattsStrogatz">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.NetworkModels.WattsStrogatz.dll</HintPath>
+    </Reference>
+    <Reference Include="NETGen.Visualization">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\NETGen.Visualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Norm">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\Norm.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.Compatibility">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\OpenTK.Compatibility.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>..\..\..\NETGen-master\NETGen-master\Applications\Demo\bin\Debug\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobValues.cs" />
+    <Compile Include="Kuramoto.cs" />
+    <Compile Include="LaunchBarbasiModel.cs" />
+    <Compile Include="Nodes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
